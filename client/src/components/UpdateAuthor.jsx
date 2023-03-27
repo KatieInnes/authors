@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import AuthorForm from '../components/AuthorForm';
 
-const updateAuthor = (props) => {
+const UpdateAuthor = (props) => {
     const { id } = useParams();
     const [author, setAuthor] = useState({});
     const [loaded, setLoaded] = useState(false);
@@ -14,7 +14,7 @@ const updateAuthor = (props) => {
                 setAuthor(res.data);
                 setLoaded(true);
             })
-    }, [])
+    }, [id])
     const updateAuthor = authorParam => {
         axios.put('http://localhost:8000/api/authors/' + id, 
         authorParam)
@@ -29,4 +29,4 @@ const updateAuthor = (props) => {
         </div>
     )
 }
-export default updateAuthor;
+export default UpdateAuthor;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import AuthorForm from '../components/AuthorForm';
-import DisplayAll from '../components/DisplayAll';
+import AllAuthors from '../components/AllAuthors';
 
 const Main = () => {
     
@@ -19,7 +19,7 @@ const Main = () => {
         .then((res)=>{
             console.log(res);
             console.log(res.data);
-            setAuthorList(authorList.filter(AuthorForm=> AuthorForm._id !== authorId));
+            setAuthorList(authorList.filter(author=> author._id !== authorId));
         })
         .catch((err)=>console.log(err))
         
@@ -39,7 +39,7 @@ const Main = () => {
         <div>
             <AuthorForm onSubmitProp={createAuthor} initialName="" />
             <hr />
-            <DisplayAll authorList={authorList} removeFromDom={removeFromDom} />
+            <AllAuthors authorList={authorList} removeFromDom={removeFromDom} />
         </div>
     )
 }

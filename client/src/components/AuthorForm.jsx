@@ -12,7 +12,7 @@ const AuthorForm = (props) => {
     return (
         <form>
             <p>
-                <label>First Name</label><br />
+                <label>Author Name</label><br />
                 <input type="text" name="authorName" value={authorName} onChange={(e) => setAuthorName(e.target.value)}
                 />
             </p>
